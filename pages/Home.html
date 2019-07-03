@@ -1,124 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>bg.Sepeda</title>
+	<title>Toko.Sepeda</title>
 </head>
 <body>
 <div class="col s12 m8 offset-m2 l6 offset-l3">
         <div class="card-panel grey lighten-5 z-depth-1">
-          <div class="row">
-      <h4>7 Sepeda Keren Yang Sebenarnya Bisa Anda Beli</h4>   </span>
+        <div class="row">
+        <h5 class="blue-text">Sepeda keren yang bisa anda beli.</h5>
         <div class="col s12 m6 l4">
             <img src="img/1.jpg" class="materialbox responsive-img card">
-            <h5>sepeda keranjang</h5>
-            <div>Price: Rp 5.000.000,-</div>
+            <h5>sepeda 1</h5>
+            <span class="red-text text-lighten-2">Price: Rp 5.000.000,-</span>
+            <div><button class="waves-effect waves-light btn-small"  onclick="Payment.buy()">Beli sekarang</button></div>
+         </div>
+         <div class="col s12 m6 l4">
+            <img src="img/2.jpg" class="materialbox responsive-img card">
+            <h5>sepeda 2</h5>
+            <span class="red-text text-lighten-2">Price: Rp 5.000.000,-</span>
             <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
         </div>
-         <div class="col s12 m6 l4">
-          <img src="img/2.jpg" class="materialbox responsive-img card">
-          <h5>sepeda olaraga</h5>
-          <div>Price: Rp 5.000.000,-</div>
-           <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
-      </div>
-       <div class="col s12 m6 l4">
-        <img src="img/3.jpg" class="materialbox responsive-img card">
-        <h5>sepeda tua</h5>
-        <div>Price: Rp 5.000.000,-</div>
-       <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
-       </div>
-       <div class="col s12 m6 l4">
-        <img src="img/4.jpg" class="materialbox responsive-img card">
-        <h5>sepeda tua</h5>
-        <div>Price: Rp 5.000.000,-</div>
-       <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
-       </div>
-       <div class="col s12 m6 l4">
-        <img src="img/8.jpg" class="materialbox responsive-img card">
-        <h5>sepeda tua</h5>
-        <div>Price: Rp 5.000.000,-</div>
-       <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
-       </div>
-       <div class="col s12 m6 l4">
-        <img src="img/6.jpg" class="materialbox responsive-img card">
-        <h5>sepeda tua</h5>
-        <div>Price: Rp 5.000.000,-</div>
-       <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
-       </div>
-       <div class="col s12 m6 l4">
-        <img src="img/7.jpg" class="materialbox responsive-img card">
-        <h5>sepeda tua</h5>
-        <div>Price: Rp 5.000.000,-</div>
-       <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
-      </div>
+        <div class="col s12 m6 l4">
+          <img src="img/3.jpg" class="materialbox responsive-img card">
+          <h5>sepeda 3</h5>
+          <span class="red-text text-lighten-2">Price: Rp 5.000.000,-</span>
+          <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
+        </div>
+        <div class="col s12 m6 l4">
+          <img src="img/4.jpg" class="materialbox responsive-img card">
+          <h5>sepeda 4</h5>
+          <span class="red-text text-lighten-2">Price: Rp 5.000.000,-</span>
+          <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
+        </div>
+        <div class="col s12 m6 l4">
+          <img src="img/8.jpg" class="materialbox responsive-img card">
+          <h5>sepeda 5</h5>
+          <span class="red-text text-lighten-2">Price: Rp 5.000.000,-</span>
+          <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
+        </div>
+        <div class="col s12 m6 l4">
+          <img src="img/6.jpg" class="materialbox responsive-img card">
+          <h5>sepeda 6</h5>
+          <span class="red-text text-lighten-2">Price: Rp 5.000.000,-</span>
+          <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
+        </div>
+        <div class="col s12 m6 l4">
+          <img src="img/7.jpg" class="materialbox responsive-img card">
+          <h5>sepeda 7</h5>
+          <span class="red-text text-lighten-2">Price: Rp 5.000.000,-</span>
+          <div><button class="waves-effect waves-light btn-small" onclick="Payment.buy()">Beli sekarang</button></div>
+        </div>
   </div>
 </div>
-  <script>
-      class Payment{
-        constructor(){
-          this.amount=0;
-          this.supportedPaymentMethods=[  
-          {  
-              supportedMethods: ['basic-card'],  
-            },
-            {  
-              supportedMethods: ["https://example.com/bobpay"],  
-              data: {  
-                merchantIdentifier: "XXXX",  
-                bobPaySpecificField: true  
-              }  
-            }    
-          ];
-          this.paymentDetails = {  
-            total: {
-              label: 'Total',  
-              amount:{  
-                currency: 'IDR',  
-                value: this.amount  
-              }  
-            }
-          };  
-
-          this.moreOptions = {
-            requestPayerName: true,  
-            requestPayerPhone: true,  
-            requestPayerEmail: true
-            };
-        }
-
-        static buy(){
-          
-          if(window.PaymentRequest) {  
-            console.log('Payment Request Supported');
-            // Use Payment Request API  
-            let PaymentReq=new this;
-            PaymentReq.pay();
-            
-          } else {  
-            // Fallback to traditional checkout  
-            window.location.href = '/checkout/traditional';  
-          }
-        }
-
-        pay(){
-          const paymentRequest=new PaymentRequest(  
-            this.supportedPaymentMethods,  
-            this.paymentDetails,  
-            this.moreOptions  
-          );
-
-          paymentRequest.show()  
-            .then((paymentResponse) => {  
-              // The user filled in the required fields and completed the flow
-              // Get the details from `paymentResponse` and complete the transaction.
-              console.log('payment complete');
-              return paymentResponse.complete();  
-            })  
-            .catch((err) => {  
-              console.log(err);
-              // The API threw an error or the user closed the UI  
-            });
-        }
-      }
-  </script>
 </body>
 </html>
