@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Toko Sepeda</title>
+    <meta name="description" content="My first PWA" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00897B" />
+    <meta property="og:image" content="./img/icon128.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="cyan darken-3" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo" id="logo-container">Toko Sepeda</a>
+        <a href="#" class="sidenav-trigger" data-target="nav-mobile">&#9776;</a>
+
+        <ul class="topnav right hide-on-med-and-down"></ul>
+        <ul class="sidenav" id="nav-mobile"></ul>
+      </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+    <div class="container" id="body-content"></div>
+<!--script code ketika melakukan pembelian atas satu item-->
+   <script>
+      class Payment{
+        constructor(){
+          this.amount=0;
+          this.supportedPaymentMethods=[  
+          {  
+              supportedMethods: ['basic-card'],  
+            },
+            {  
+              supportedMethods: ["https://TokoSepeda.com/"],  
+              data: {  
+                merchantIdentifier: "XXXX",  
+                bobPaySpecificField: true  
+              }  
+            }    
+          ];
+          this.paymentDetails = {  
+            total: {
+              label: 'Total',  
+              amount:{  
+                currency: 'IDR',  
+                value: this.amount  
+              }  
+            }
+          };  
+
+          this.moreOptions = {
+            requestPayerName: true,  
+            requestPayerPhone: true,  
+            requestPayerEmail: true
+            };
+        }
+
+        static buy(){
+          
+          if(window.PaymentRequest) {  
+            console.log('Payment Request Supported');
+            // Use Payment Request API  
+            let PaymentReq=new this;
+            PaymentReq.pay();
+            
+          } else {  
+            // Fallback to traditional checkout  
+            window.location.href = '/checkout/traditional';  
+          }
+        }
+
+        pay(){
+          const paymentRequest=new PaymentRequest(  
+            this.supportedPaymentMethods,  
+            this.paymentDetails,  
+            this.moreOptions  
+          );
+
+          paymentRequest.show()  
+            .then((paymentResponse) => {  
+              // The user filled in the required fields and completed the flow
+              // Get the details from `paymentResponse` and complete the transaction.
+              console.log('payment complete');
+              return paymentResponse.complete();  
+            })  
+            .catch((err) => {  
+              console.log(err);
+              // The API threw an error or the user closed the UI  
+            });
+        }
+      }
+  </script>
+  <!--Akhir script code ketika melakukan pembelian atas satu item-->
+    <script src="js/materialize.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/api.js"></script>
+     <script src="js/idb.js"></script>
+      <script src="js/db.js"></script>
+
+    <script>
+      // REGISTER SERVICE WORKER
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker
+            .register("TokoSepeda-sw.js")
+            .then(function() {
+              console.log("Pendaftaran ServiceWorker berhasil");
+            })
+            .catch(function() {
+              console.log("Pendaftaran ServiceWorker gagal");
+            });
+        });
+      } else {
+        console.log("ServiceWorker belum didukung browser ini.");
+      }
+
+      // REQUEST API UNTUK PERTAMA KALI
+      document.addEventListener("DOMContentLoaded", function() {
+        getHomes();
+      });
+    </script>
+  </body>
+</html>
