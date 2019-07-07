@@ -11,6 +11,10 @@
     <meta property="og:image" content="./img/icon128.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <!-- Navigasi -->
@@ -24,7 +28,46 @@
       </div>
     </nav>
     <!-- Akhir Navigasi -->
+    <!--Slider-->
+    <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="img/1.jpg"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>Toko Sepada</h3>
+          <h5 class="light grey-text text-lighten-3">Sepeda Keranjang.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="img/7.jpg"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Toko Sepada</h3>
+          <h5 class="light grey-text text-lighten-3">Sepeda Chopeer.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="img/4.jpg"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Toko Sepada</h3>
+          <h5 class="light grey-text text-lighten-3">Sepeda Calfee.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="img/6.jpg"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>Toko Sepada</h3>
+          <h5 class="light grey-text text-lighten-3">Sepeda Renovo.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
     <div class="container" id="body-content"></div>
+      <!--Slider-->
+      <script type="text/javascript">
+          $(document).ready(function(){
+      $('.slider').slider();
+    });
+      </script>
 <!--script code ketika melakukan pembelian atas satu item-->
    <script>
       class Payment{
@@ -100,7 +143,6 @@
     <script src="js/api.js"></script>
      <script src="js/idb.js"></script>
       <script src="js/db.js"></script>
-
     <script>
       // REGISTER SERVICE WORKER
       if ("serviceWorker" in navigator) {
